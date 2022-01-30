@@ -1,0 +1,9 @@
+CREATE TABLE User (
+  Name VARCHAR (100) ,
+  Email VARCHAR (100),
+  Age INT NOT NULL,
+  CPF INT,
+  Balance FLOAT NOT NULL,
+  Birthdate DATE,
+  primary key (CPF)
+);

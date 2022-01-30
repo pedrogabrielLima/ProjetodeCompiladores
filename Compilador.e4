@@ -1,0 +1,24 @@
+grammar Compilador;
+
+start     : 'CREATE' 'TABLE' tableNome=ID '(' colunas ')' ';'
+          ;
+
+colunas    : (colnome=ID DATATYPE (TAM)? ( NN )? ','? ( PK '('pknome=ID')' )? )+
+           ;
+
+DATATYPE  : ('INT' | 'VARCHAR' | 'TEXT' | 'BOOL' | 'FLOAT' | 'DECIMAL' | 'DATE')
+          ;
+
+TAM   : '('[0-9]+')'
+      ;
+
+NN    : 'NOT NULL'
+      ;
+
+PK    : 'primary key'
+      ;
+
+ID    : [a-zA-Z0-9]+
+      ;
+
+SPACE : (' ' | '\n' | '\t' | '\r') -> skip ;
